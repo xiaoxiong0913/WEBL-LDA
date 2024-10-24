@@ -21,9 +21,6 @@ feature_names = [
 ]
 
 # 加载模型和标准化器
-script_name = os.path.basename(sys.argv[0])
-if script_name == 'streamlit.py':
-    raise ImportError("Please rename the script to avoid a name conflict with the Streamlit module.")
 
 model_path = 'lda_model.pkl'
 scaler_path = 'scaler.pkl'
