@@ -54,23 +54,23 @@ st.markdown("## Selection Panel")
 st.markdown("Picking up parameters")
 
 with st.form("prediction_form"):
-    lym = st.slider('Lym (10^9/L)', min_value=0.0, max_value=8.0, value=1.0, step=0.1, key='Lym（10^9/L）')
-    hb = st.slider('Hb (g/L)', min_value=0.0, max_value=200.0, value=100.0, step=1.0, key='Hb(g/L)')
-    alb = st.slider('Alb (g/L)', min_value=0.0, max_value=50.0, value=25.0, step=0.1, key='Alb(g/L)')
+    lym = st.slider('Lym (10^9/L)', min_value=0.0, max_value=8.0, value=1.0, step=0.1, key='Lym')
+    hb = st.slider('Hb (g/L)', min_value=0.0, max_value=200.0, value=100.0, step=1.0, key='Hb')
+    alb = st.slider('Alb (g/L)', min_value=0.0, max_value=50.0, value=25.0, step=0.1, key='Alb')
     reperfusion_therapy = st.selectbox('Reperfusion Therapy', options=[0, 1],
                                        format_func=lambda x: 'Yes' if x == 1 else 'No',
-                                       key='reperfusiontherapy(yes1，no0)')
-    ecmo = st.selectbox('ECMO', options=[0, 1], format_func=lambda x: 'Yes' if x == 1 else 'No', key='ECMO(yes1,no0)')
+                                       key='reperfusiontherapy')
+    ecmo = st.selectbox('ECMO', options=[0, 1], format_func=lambda x: 'Yes' if x == 1 else 'No', key='ECMO')
     acei_arb = st.selectbox('ACEI/ARB', options=[0, 1], format_func=lambda x: 'Yes' if x == 1 else 'No',
-                            key='ACEI/ARB(yes1,no0)')
+                            key='ACEI/ARB')
 
     submit_button = st.form_submit_button("Predict")
 
 # 定义正常值范围
 normal_ranges = {
-    "Lym（10^9/L）": (0.8, 4.0),
-    "Hb(g/L)": (120, 170),
-    "Alb(g/L)": (35, 50)
+    "Lym": (0.8, 4.0),
+    "Hb": (120, 170),
+    "Alb": (35, 50)
 }
 
 # 处理表单提交
