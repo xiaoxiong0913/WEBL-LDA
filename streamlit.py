@@ -46,7 +46,7 @@ st.title(
 # 介绍部分
 st.markdown("""
 ## Introduction
-This web-based calculator was developed based on the Linear Discriminant Analysis (LDA) model. Users can obtain the one-year risk of death for a particular case by selecting parameters and clicking the "Calculate" button.
+This web-based calculator was developed based on the Linear Discriminant Analysis (LDA) model. The model demonstrated an ROC AUC of 0.92 (95% CI [0.86, 0.97]), accuracy of 0.85, F1-score of 0.82, Brier score of 0.13, and AUC-PR of 0.90. Users can obtain the one-year risk of death for a particular case by selecting parameters and clicking the "Calculate" button.
 """)
 
 # 创建输入表单
