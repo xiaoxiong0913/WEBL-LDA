@@ -2,6 +2,7 @@ import os
 import pickle
 import pandas as pd
 import streamlit as st
+import sys
 from sklearn.preprocessing import StandardScaler
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 import warnings
@@ -11,15 +12,19 @@ warnings.filterwarnings("ignore", category=UserWarning, module="sklearn")
 
 # 定义特征名称
 feature_names = [
-    'Lym（10^9/L）',
-    'Hb(g/L)',
-    'Alb(g/L)',
-    'reperfusiontherapy(yes1，no0)',
-    'ECMO(yes1,no0)',
-    'ACEI/ARB(yes1,no0)'
+    'Hb',
+    'Alb',
+    'reperfusiontherapy',
+    'ECMO',
+    'ACEI/ARB',
+    'Lym'
 ]
 
 # 加载模型和标准化器
+script_name = os.path.basename(sys.argv[0])
+if script_name == 'streamlit.py':
+    raise ImportError("Please rename the script to avoid a name conflict with the Streamlit module.")
+
 model_path = 'lda_model.pkl'
 scaler_path = 'scaler.pkl'
 
@@ -74,12 +79,12 @@ normal_ranges = {
 # 处理表单提交
 if submit_button:
     data = {
-        "Lym（10^9/L）": lym,
-        "Hb(g/L)": hb,
-        "Alb(g/L)": alb,
-        "reperfusiontherapy(yes1，no0)": reperfusion_therapy,
-        "ECMO(yes1,no0)": ecmo,
-        "ACEI/ARB(yes1,no0)": acei_arb,
+        'Hb': hb,
+        'Alb': alb,
+        'reperfusiontherapy': reperfusion_therapy,
+        'ECMO': ecmo,
+        'ACEI/ARB': acei_arb,
+        'Lym': lym
     }
 
     try:
